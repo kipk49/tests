@@ -116,6 +116,10 @@
 					<number>1</number>
 				</entry>
 				<entry>
+					<prototype>enrichment_plant</prototype>
+					<number>1</number>
+				</entry>
+				<entry>
 					<prototype>lwr</prototype>
 					<number>1</number>
 				</entry>
