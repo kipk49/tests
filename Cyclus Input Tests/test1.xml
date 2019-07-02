@@ -1,3 +1,145 @@
 <simulation>
+	<archetypes>
+		<spec>
+			<lib>agents</lib>
+			<name>NullRegion</name>
+		</spec>
+		<spec>
+			<lib>agents</lib>
+			<name>NullInst</name>
+		</spec>
+		<spec>
+			<lib>cycamore</lib>
+			<name>Source</name>
+		</spec>
+		<spec>
+			<lib>cycamore</lib>
+			<name>Reactor</name>
+		</spec>
+		<spec>
+			<lib>cycamore</lib>
+			<name>Sink</name>
+		</spec>
+	</archetypes>
+
+	<!-- Controls -->
+
+	<control>
+		<duration>12</duration>
+		<startmonth>1</startmonth>
+		<startyear>2000</startyear>
+	</control>
+
+	<!-- Facilities -->
+
+	<facility>
+		<config>
+			<Source>
+				<outcommod>uox</outcommod>
+				<outrecipe>uox_recipe</outrecipe>
+				<throughput>5</throughput>
+			</Source>
+		</config>
+		<name>mine</name>
+	</facility>
+
+	<facility>
+		<config>
+			<Reactor>
+				<assem_size>1</assem_size>
+				<cycle_time>1</cycle_time>
+				<fuel_incommods>
+					<val>uox</val>
+				</fuel_incommods>
+				<fuel_inrecipes>
+					<val>uox_recipe</val>
+				</fuel_inrecipes>
+				<fuel_outcommods>
+					<val>spent_uox</val>
+				</fuel_outcommods>
+				<fuel_outrecipes>
+					<val>spent_uox_recipe</val>
+				</fuel_outrecipes>
+				<n_assem_batch>1</n_assem_batch>
+				<n_assem_core>1</n_assem_core>
+				<power_cap>10</power_cap>
+				<refuel_time>0</refuel_time>
+			</Reactor>
+		</config>
+		<name>lwr</name>
+	</facility>
+
+	<facility>
+		<config>
+			<Sink>
+				<in_commods>
+					<val>spent_uox</val>
+				</in_commods>
+				<max_inv_size>10</max_inv_size>
+			</Sink>
+		</config>
+		<name>dgr</name>
+	</facility>
+
+	<!-- Regions -->
+
+	<region>
+		<config>
+			<NullRegion/>
+		</config>
+		<institution>
+			<config>
+				<NullInst/>
+			</config>
+			<initialfacilitylist>
+				<entry>
+					<prototype>mine</prototype>
+					<number>1</number>
+				</entry>
+				<entry>
+					<prototype>lwr</prototype>
+					<number>1</number>
+				</entry>
+				<entry>
+					<prototype>dgr</prototype>
+					<number>1</number>
+				</entry>
+			</initialfacilitylist>
+			<name>test_institution</name>
+		</institution>
+		<name>test_region</name>
+	</region>
+
+	<!-- Recipes -->
+
+	<recipe>
+		<basis>mass</basis>
+		<name>uox_recipe</name>
+		<nuclide>
+			<comp>3.000</comp>
+			<id>U235</id>
+		</nuclide>
+		<nuclide>
+			<comp>97.000</comp>
+			<id>U238</id>
+		</nuclide>
+	</recipe>
+
+	<recipe>
+		<basis>mass</basis>
+		<name>spent_uox_recipe</name>
+		<nuclide>
+			<comp>0.500</comp>
+			<id>U235</id>
+		</nuclide>
+		<nuclide>
+			<comp>92.000</comp>
+			<id>U238</id>
+		</nuclide>
+		<nuclide>
+			<comp>7.500</comp>
+			<id>Pu239</id>
+		</nuclide>
+	</recipe>
 
 </simulation>
