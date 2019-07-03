@@ -1,12 +1,12 @@
-#import csv
 #from matplotlib import pyplot as plt
 
-#file = input("Enter the full csv file name")
+file_name = input("Enter the .csv file name: ")
 
-#print("Hello World")
+f = open(file_name + ".csv", "r")
+lines = f.readlines()
+for line in lines:
+	value = line.split(",")
+	print(value[3])
 
-#with open()
-
-f = open("hello.txt", "w+")
-f.write("Hello World")
 f.close()
+
