@@ -29,7 +29,7 @@ def general(file_name):
 	for line in lines:
 		broken_line = line.split(",")
 		label = broken_line[0]
-		number = broken_line[3]
+		number = broken_line[1]
 		if label == "":
 			continue
 		label_list.append(label)
@@ -40,20 +40,20 @@ def general(file_name):
 
 def plotter(number_list, bruh, label_list):
 	maximum = int(bruh) + 1000
-	marker_list = ["rx", "bs", "g^", "ko", "y*", "mp", "cd"]
+	marker_list = ["rh", "bs", "g^", "ko", "y*", "mp", "cd"]
 	count = 0
 	for number in number_list:
 		plt.plot(bruh, number, marker_list[count])
 		count += 1
 	plt.xlabel("Buffer Size")
 	plt.ylabel("Power Undersupply")
-	plt.axis([0, maximum, 0, 25])
+	plt.axis([0, maximum, 50000, 150000])
 
 def create_legend(label_list):
-	plt.legend(label_list, loc = "best")
+	plt.legend(label_list, loc = "center left", bbox_to_anchor = (1.04, 0.5), borderaxespad = 0)
 
 if __name__ == "__main__":
 	main()
-plt.show()
+plt.savefig("output.png", bbox_inches = "tight")
 
 
