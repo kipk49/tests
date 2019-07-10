@@ -212,7 +212,7 @@
 				<feed_commod_prefs>
 					<val>1.0</val>
 				</feed_commod_prefs>
-				<feed_recipe>spent_ox_recipe</feed_recipe>
+				<feed_recipe>spent_mox_recipe</feed_recipe>
 				<feedbuf_size>3</feedbuf_size>
 				<leftover_commod>mox_reprocessing_waste</leftover_commod>
 				<leftoverbuf_size>3</leftoverbuf_size>
