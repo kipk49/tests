@@ -288,14 +288,16 @@
 							<mixing_ratio>0.157</mixing_ratio>
 							<buf_size>1e100</buf_size>
 						</info>
-						<item>
-							<commodity>tailings</commodity>
-							<pref>2.0</pref>
-						</item>
-						<item>
-							<commodity>natural_u</commodity>
-							<pref>1.0</pref>
-						</item>
+						<commodities>
+							<item>
+								<commodity>tailings</commodity>
+								<pref>2.0</pref>
+							</item>
+							<item>
+								<commodity>natural_u</commodity>
+								<pref>1.0</pref>
+							</item>
+						</commodities>
 					</stream>
 				</in_streams>
 				<out_commod>mox_fuel</out_commod>
