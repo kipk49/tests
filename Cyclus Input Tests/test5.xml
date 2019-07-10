@@ -1,3 +1,19 @@
+<!--
+Hello! This is test number 5 in Kip's test bank. It builds off of test 4, 
+turning the simulation into a simple closed fuel cycle. Ideally, test 6 
+will add d3ploy capabilities to the simulation.
+
+Scenario starts on January 1st, 2000, and goes for 120 years as requested 
+by Roberto. In this case, LWRs burn only UOX fuel and SFRs burn only MOX.
+
+Recipes for the various materials were taken from the transition-scenarios
+repository in the ARFC main repository at https://github.com/arfc/transition-scenarios
+
+For test 6, I will have to work with Python to configure d3ploy as needed. 
+Yuck...
+
+Thanks!
+-->
 <simulation>
 	<archetypes>
 		<spec>
