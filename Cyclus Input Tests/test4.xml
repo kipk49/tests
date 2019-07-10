@@ -47,8 +47,8 @@
 	<facility>
 		<config>
 			<Source>
-				<outcommod>uox</outcommod>
-				<outrecipe>uox_recipe</outrecipe>
+				<outcommod>natural_u</outcommod>
+				<outrecipe>natural_u_recipe</outrecipe>
 				<throughput>5</throughput>
 			</Source>
 		</config>
