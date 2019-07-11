@@ -71,7 +71,7 @@ SFR Info: 1 GW, 40 year lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>1440</duration>
+		<duration>50</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 	</control>
