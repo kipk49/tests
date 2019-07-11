@@ -404,7 +404,7 @@ SFR Info: 1 GW, 40 year lifespan
 			</initialfacilitylist>
 			<name>test_institution</name>
 		</institution>
-		<institution>
+		<!--<institution>
 			<config>
 				<DemandDrivenDeploymentInst>
 					<calc_method>ma</calc_method>
@@ -424,7 +424,7 @@ SFR Info: 1 GW, 40 year lifespan
 				</DemandDrivenDeploymentInst>
 			</config>
 			<name>d3ploy_institution</name>
-		</institution>
+		</institution>-->
 		<name>big_region</name>
 	</region>
 
