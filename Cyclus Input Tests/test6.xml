@@ -83,7 +83,7 @@ SFR Info: 1 GW, 40 year lifespan
 			<Source>
 				<outcommod>natural_u</outcommod>
 				<outrecipe>natural_u_recipe</outrecipe>
-				<throughput>1E299</throughput>
+				<throughput>1E6</throughput>
 			</Source>
 		</config>
 		<name>mine</name>
@@ -413,10 +413,10 @@ SFR Info: 1 GW, 40 year lifespan
 							<facility>sfr</facility>
 							<commod>POWER</commod>
 						</item>
-						<!--<item>
+						<item>
 							<facility>mine</facility>
 							<commod>natural_u</commod>
-						</item>-->
+						</item>
 						<item>
 							<facility>enrichment_plant</facility>
 							<commod>uox</commod>
@@ -427,10 +427,10 @@ SFR Info: 1 GW, 40 year lifespan
 							<facility>sfr</facility>
 							<capacity>1000</capacity>
 						</item>
-						<!--<item>
+						<item>
 							<facility>mine</facility>
-							<capacity>10000</capacity>
-						</item>-->
+							<capacity>1E6</capacity>
+						</item>
 						<item>
 							<facility>enrichment_plant</facility>
 							<capacity>100000</capacity>
