@@ -13,13 +13,13 @@ repository in the ARFC main repository at https://github.com/arfc/transition-sce
 Thanks!
 
 Note: Only the Mine, Enrichment Plant, and SFR facilities are under d3ploy
-control. All others have been set to arbitrarily high limits, so as not to
+control. All others have been set to arbitrarily high limits so as not to
 interfere with the d3ploy simulation.
 
 TECH DETAILS:
 __________________________________________________________________________
 Start Date: Jan 2000
-Duration: 120 years (1440 months)
+Duration: 50 months (for the sake of runtime)
 Power Demand: 60 GW, constant
 LWR Info: 1 GW, 40 year lifespan
 SFR Info: 1 GW, 40 year lifespan
@@ -65,6 +65,10 @@ SFR Info: 1 GW, 40 year lifespan
 		<spec>
 			<lib>d3ploy.demand_driven_deployment_inst</lib>
 			<name>DemandDrivenDeploymentInst</name>
+		</spec>
+		<spec>
+			<lib>d3ploy.supply_driven_deployment_inst</lib>
+			<name>SupplyDrivenDeploymentInst</name>
 		</spec>
 	</archetypes>
 
@@ -348,7 +352,7 @@ SFR Info: 1 GW, 40 year lifespan
 					<val>mox_reprocessing_waste</val>
 					<val>tailings</val>
 				</in_commods>
-				<max_inv_size>1E299</max_inv_size>
+				<max_inv_size>1E10</max_inv_size>
 			</Sink>
 		</config>
 		<name>dgr</name>
@@ -439,7 +443,27 @@ SFR Info: 1 GW, 40 year lifespan
 					<demand_eq>60000</demand_eq>
 				</DemandDrivenDeploymentInst>
 			</config>
-			<name>d3ploy_institution</name>
+			<name>nuclear_front_end</name>
+		</institution>
+		<institution>
+			<config>
+				<SupplyDrivenDeploymentInst>
+					<calc_method>ma</calc_method>
+					<facility_commod>
+						<item>
+							<facility>dgr</facility>
+							<commod>tailings</commod>
+						</item>
+					</facility_commod>
+					<facility_capacity>
+						<item>
+							<facility>dgr</facility>
+							<capacity>1E10</capacity>
+						</item>
+					</facility_capacity>
+				</SupplyDrivenDeploymentInst>
+			</config>
+			<name>nuclear_back_end</name>
 		</institution>
 		<name>big_region</name>
 	</region>
