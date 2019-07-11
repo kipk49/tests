@@ -125,7 +125,7 @@ SFR Info: 1 GW, 40 year lifespan
 				<n_assem_core>3</n_assem_core>
 				<power_cap>1000</power_cap>
 				<refuel_time>1</refuel_time>
-				<lifetime>480</lifetime>
+				<!--<lifetime>480</lifetime>-->
 			</Reactor>
 		</config>
 		<name>lwr</name>
