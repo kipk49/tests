@@ -1,18 +1,28 @@
 <!--
-Hello! This is test number 5 in Kip's test bank. It builds off of test 4, 
-turning the simulation into a simple closed fuel cycle. Ideally, test 6 
-will add d3ploy capabilities to the simulation.
+Hello! This is test number 6 in Kip's test bank. It builds off of test 5, 
+and is supposed to add d3ploy capabilites to the simple closed fuel cycle 
+found in number 5. As with test 5, power demand is constant. D3ploy's 
+only purpose here is to deploy SFRs in response to the decommissioning 
+of the original LWR fleet.
 
-Scenario starts on January 1st, 2000, and goes for 120 years as requested 
-by Roberto. In this case, LWRs burn only UOX fuel and SFRs burn only MOX.
+In this case, LWRs burn only UOX fuel and SFRs burn only MOX.
 
 Recipes for the various materials were taken from the transition-scenarios
 repository in the ARFC main repository at https://github.com/arfc/transition-scenarios
 
-For test 6, I will have to work with Python to configure d3ploy as needed. 
-Yuck...
-
 Thanks!
+
+Note: Only the Mine, Enrichment Plant, and SFR facilities are under d3ploy
+control. All others have been set to arbitrarily high limits, so as not to
+interfere with the d3ploy simulation.
+
+TECH DETAILS:
+--------------------------------------------------------------------------
+Start Date: Jan 2000
+Duration: 120 years (1440 months)
+Power Demand: 60 GW, constant
+LWR Info: 1 GW, 40 year lifespan
+SFR Info: 1 GW, 40 year lifespan
 -->
 <simulation>
 	<archetypes>
@@ -52,6 +62,10 @@ Thanks!
 			<lib>cycamore</lib>
 			<name>Sink</name>
 		</spec>
+		<spec>
+			<lib>d3ploy.demand_driven_deployment_inst</lib>
+			<name>DemandDrivenDeploymentInst</name>
+		</spec>
 	</archetypes>
 
 	<!-- Controls -->
@@ -69,7 +83,7 @@ Thanks!
 			<Source>
 				<outcommod>natural_u</outcommod>
 				<outrecipe>natural_u_recipe</outrecipe>
-				<throughput>1E299</throughput>
+				<throughput>1E5</throughput>
 			</Source>
 		</config>
 		<name>mine</name>
@@ -81,10 +95,10 @@ Thanks!
 				<feed_commod>natural_u</feed_commod>
 				<feed_recipe>natural_u_recipe</feed_recipe>
 				<product_commod>uox</product_commod>
-				<tails_assay>0.003</tails_assay>
+				<tails_assay>0.001</tails_assay>
 				<tails_commod>tailings</tails_commod>
-				<swu_capacity>1E100</swu_capacity>
-				<initial_feed>1E100</initial_feed>
+				<swu_capacity>5000</swu_capacity>
+				<initial_feed>5000</initial_feed>
 			</Enrichment>
 		</config>
 		<name>enrichment_plant</name>
@@ -93,8 +107,8 @@ Thanks!
 	<facility>
 		<config>
 			<Reactor>
-				<assem_size>1</assem_size>
-				<cycle_time>1</cycle_time>
+				<assem_size>1000</assem_size>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>uox</val>
 				</fuel_incommods>
@@ -108,9 +122,10 @@ Thanks!
 					<val>spent_uox_recipe</val>
 				</fuel_outrecipes>
 				<n_assem_batch>1</n_assem_batch>
-				<n_assem_core>1</n_assem_core>
-				<power_cap>10</power_cap>
-				<refuel_time>0</refuel_time>
+				<n_assem_core>3</n_assem_core>
+				<power_cap>1000</power_cap>
+				<refuel_time>1</refuel_time>
+				<lifetime>480</lifetime>
 			</Reactor>
 		</config>
 		<name>lwr</name>
@@ -119,8 +134,8 @@ Thanks!
 	<facility>
 		<config>
 			<Reactor>
-				<assem_size>1</assem_size>
-				<cycle_time>1</cycle_time>
+				<assem_size>1000</assem_size>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>mox</val>
 				</fuel_incommods>
@@ -134,9 +149,10 @@ Thanks!
 					<val>spent_mox_recipe</val>
 				</fuel_outrecipes>
 				<n_assem_batch>1</n_assem_batch>
-				<n_assem_core>1</n_assem_core>
-				<power_cap>10</power_cap>
-				<refuel_time>0</refuel_time>
+				<n_assem_core>3</n_assem_core>
+				<power_cap>1000</power_cap>
+				<refuel_time>1</refuel_time>
+				<lifetime>480</lifetime>
 			</Reactor>
 		</config>
 		<name>sfr</name>
@@ -351,19 +367,15 @@ Thanks!
 			<initialfacilitylist>
 				<entry>
 					<prototype>mine</prototype>
-					<number>1</number>
+					<number>50</number>
 				</entry>
 				<entry>
 					<prototype>enrichment_plant</prototype>
-					<number>1</number>
+					<number>20</number>
 				</entry>
 				<entry>
 					<prototype>lwr</prototype>
-					<number>1</number>
-				</entry>
-				<entry>
-					<prototype>sfr</prototype>
-					<number>1</number>
+					<number>60</number>
 				</entry>
 				<entry>
 					<prototype>uox_cooling_pool</prototype>
@@ -392,7 +404,46 @@ Thanks!
 			</initialfacilitylist>
 			<name>test_institution</name>
 		</institution>
-		<name>test_region</name>
+		<institution>
+			<config>
+				<DemandDrivenDeploymentInst>
+					<calc_method>ma</calc_method>
+					<facility_commod>
+						<item>
+							<facility>sfr</facility>
+							<commod>POWER</commod>
+						</item>
+						<item>
+							<facility>mine</facility>
+							<commod>natural_u</commod>
+						</item>
+						<item>
+							<facility>enrichment_plant</facility>
+							<commod>uox</commod>
+						</item>
+					</facility_commod>
+					<facility_capacity>
+						<item>
+							<facility>sfr</facility>
+							<capacity>1000</capacity>
+						</item>
+						<item>
+							<facility>mine</facility>
+							<capacity>1E5</capacity>
+						</item>
+						<item>
+							<facility>enrichment_plant</facility>
+							<capacity>5000</capacity>
+						</item>
+					</facility_capacity>
+					<demand_eq>60000</demand_eq>
+					<record>1</record>
+					<steps>1</steps>
+				</DemandDrivenDeploymentInst>
+			</config>
+			<name>d3ploy_institution</name>
+		</institution>
+		<name>big_region</name>
 	</region>
 
 	<!-- Recipes -->
