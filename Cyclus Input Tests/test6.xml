@@ -62,10 +62,10 @@ SFR Info: 1 GW, 40 year lifespan
 			<lib>cycamore</lib>
 			<name>Sink</name>
 		</spec>
-		<spec>
+		<!--<spec>
 			<lib>d3ploy.demand_driven_deployment_inst</lib>
 			<name>DemandDrivenDeploymentInst</name>
-		</spec>
+		</spec>-->
 	</archetypes>
 
 	<!-- Controls -->
