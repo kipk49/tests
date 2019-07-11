@@ -375,6 +375,10 @@ SFR Info: 1 GW, 40 year lifespan
 				</entry>
 				<entry>
 					<prototype>lwr</prototype>
+					<number>5</number>
+				</entry>
+				<entry>
+					<prototype>sfr</prototype>
 					<number>1</number>
 				</entry>
 				<entry>
@@ -402,7 +406,7 @@ SFR Info: 1 GW, 40 year lifespan
 					<number>1</number>
 				</entry>
 			</initialfacilitylist>
-			<name>test_institution</name>
+			<name>standard_institution</name>
 		</institution>
 		<institution>
 			<config>
@@ -410,13 +414,13 @@ SFR Info: 1 GW, 40 year lifespan
 					<calc_method>ma</calc_method>
 					<facility_commod>
 						<item>
-							<facility>sfr</facility>
+							<facility>lwr</facility>
 							<commod>POWER</commod>
 						</item>
 					</facility_commod>
 					<facility_capacity>
 						<item>
-							<facility>sfr</facility>
+							<facility>lwr</facility>
 							<capacity>1000</capacity>
 						</item>
 					</facility_capacity>
