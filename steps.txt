@@ -1,0 +1,18 @@
+1) Ran Greg's script to update bashrc, setup Git, Juptyer Notebook, and Sublime Text Editor
+2) Downloaded .sh script from the Anaconda3 website, moved it to Home
+3) Bashed the .sh script
+4) echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc
+5) source .bashrc
+6) conda config --add channels conda-forge
+7) conda install -y openssh gxx_linux-64 gcc_linux-64 cmake make docker-pycreds git xo python-json-logger python=3.6 glibmm glib=2.56 libxml2 libxmlpp libblas libcblas liblapack pkg-config coincbc=2.9 boost-cpp hdf5 sqlite pcre gettext bzip2 xz setuptools nose pytables pandas jinja2 cython==0.26 websockets pprintpp
+8) Cloned Cyclus, ran install.py
+9) Ran unit tests, all passed
+10) Cloned Cycamore, ran install.py
+11) Ran unit tests, all passed
+12) Cloned d3ploy
+13) Cloned kipk49/tests
+14) Used apt to sudo install pip3
+15) pip3 installed statsmodels, arch, and pmdarima
+16) Uninstalled 2 extra versions of scipy, installed scipy 1.2.0
+17) Ran d3ploy's setup.py
+18) Ran pytest, 22 failures noted
