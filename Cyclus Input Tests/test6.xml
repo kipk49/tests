@@ -73,7 +73,7 @@ SFR Info: 700 MW, 40 year lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>50</duration>
+		<duration>25</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 	</control>
