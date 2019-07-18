@@ -104,7 +104,7 @@
 					<number>1</number>
 				</entry>
 			</initialfacilitylist>
-			<name>standard_institution</name>
+			<name>initial_institution</name>
 		</institution>
 		<institution>
 			<config>
@@ -112,22 +112,30 @@
 					<calc_method>ma</calc_method>
 					<facility_commod>
 						<item>
+							<facility>mine</facility>
+							<commod>uox</commod>
+						</item>
+						<item>
 							<facility>lwr</facility>
 							<commod>POWER</commod>
 						</item>
 					</facility_commod>
 					<facility_capacity>
 						<item>
+							<facility>mine</facility>
+							<capacity>5000</capacity>
+						</item>
+						<item>
 							<facility>lwr</facility>
 							<capacity>1000</capacity>
 						</item>
 					</facility_capacity>
-					<demand_eq>6000</demand_eq>
+					<demand_eq>20000</demand_eq>
 				</DemandDrivenDeploymentInst>
 			</config>
 			<name>nuclear_front_end</name>
 		</institution>
-		<name>big_region</name>
+		<name>small_region</name>
 	</region>
 
 	<recipe>
