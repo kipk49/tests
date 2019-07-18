@@ -76,7 +76,7 @@
 				<in_commods>
 					<val>spent_uox</val>
 				</in_commods>
-				<max_inv_size>1E10</max_inv_size>
+				<max_inv_size>10000</max_inv_size>
 			</Sink>
 		</config>
 		<name>dgr</name>
@@ -119,6 +119,10 @@
 							<facility>lwr</facility>
 							<commod>POWER</commod>
 						</item>
+						<item>
+							<facility>dgr</facility>
+							<commod>spent_uox</commod>
+						</item>
 					</facility_commod>
 					<facility_capacity>
 						<item>
@@ -128,6 +132,10 @@
 						<item>
 							<facility>lwr</facility>
 							<capacity>1000</capacity>
+						</item>
+						<item>
+							<facility>dgr</facility>
+							<capacity>10000</capacity>
 						</item>
 					</facility_capacity>
 					<demand_eq>20000</demand_eq>
