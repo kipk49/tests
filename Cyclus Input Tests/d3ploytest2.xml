@@ -37,7 +37,7 @@
 			<Source>
 				<outcommod>uox</outcommod>
 				<outrecipe>uox_recipe</outrecipe>
-				<throughput>1E6</throughput>
+				<throughput>5000</throughput>
 			</Source>
 		</config>
 		<name>mine</name>
