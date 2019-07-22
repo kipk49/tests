@@ -24,6 +24,10 @@
 			<lib>d3ploy.demand_driven_deployment_inst</lib>
 			<name>DemandDrivenDeploymentInst</name>
 		</spec>
+		<spec>
+			<lib>d3ploy.supply_driven_deployment_inst</lib>
+			<name>SupplyDrivenDeploymentInst</name>
+		</spec>
 	</archetypes>
 
 	<control>
@@ -92,14 +96,6 @@
 			</config>
 			<initialfacilitylist>
 				<entry>
-					<prototype>mine</prototype>
-					<number>1</number>
-				</entry>
-				<entry>
-					<prototype>lwr</prototype>
-					<number>1</number>
-				</entry>
-				<entry>
 					<prototype>dgr</prototype>
 					<number>1</number>
 				</entry>
@@ -119,10 +115,6 @@
 							<facility>lwr</facility>
 							<commod>POWER</commod>
 						</item>
-						<item>
-							<facility>dgr</facility>
-							<commod>spent_uox</commod>
-						</item>
 					</facility_commod>
 					<facility_capacity>
 						<item>
@@ -133,15 +125,31 @@
 							<facility>lwr</facility>
 							<capacity>1000</capacity>
 						</item>
-						<item>
-							<facility>dgr</facility>
-							<capacity>10000</capacity>
-						</item>
 					</facility_capacity>
 					<demand_eq>20000</demand_eq>
 				</DemandDrivenDeploymentInst>
 			</config>
 			<name>nuclear_front_end</name>
+		</institution>
+		<institution>
+			<config>
+				<SupplyDrivenDeploymentInst>
+					<calc_method>ma</calc_method>
+					<facility_commod>
+						<item>
+							<facility>dgr</facility>
+							<commod>spent_uox</commod>
+						</item>
+					</facility_commod>
+					<facility_capacity>
+						<item>
+							<facility>dgr</facility>
+							<capacity>10000</capacity>
+						</item>
+					</facility_capacity>
+				</SupplyDrivenDeploymentInst>
+			</config>
+			<name>nuclear_back_end</name>
 		</institution>
 		<name>small_region</name>
 	</region>

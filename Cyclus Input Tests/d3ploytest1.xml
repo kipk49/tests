@@ -106,6 +106,7 @@
 			</initialfacilitylist>
 			<name>initial_institution</name>
 		</institution>
+		
 		<institution>
 			<config>
 				<DemandDrivenDeploymentInst>
