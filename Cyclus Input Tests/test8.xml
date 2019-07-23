@@ -73,7 +73,7 @@ SFR Info: 700 MW, 40 year lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>50</duration>
+		<duration>100</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 	</control>
@@ -130,7 +130,7 @@ SFR Info: 700 MW, 40 year lifespan
 				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>15</lifetime>
+		<lifetime>30</lifetime>
 		<name>lwr</name>
 	</facility>
 
@@ -157,7 +157,7 @@ SFR Info: 700 MW, 40 year lifespan
 				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>15</lifetime>
+		<lifetime>30</lifetime>
 		<name>sfr</name>
 	</facility>
 
