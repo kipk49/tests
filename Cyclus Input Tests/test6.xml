@@ -85,7 +85,7 @@ SFR Info: 700 MW, 40 year lifespan
 			<Source>
 				<outcommod>natural_u</outcommod>
 				<outrecipe>natural_u_recipe</outrecipe>
-				<inventory_size>1E8</inventory_size>
+				<inventory_size>1E9</inventory_size>
 				<throughput>1E5</throughput>
 			</Source>
 		</config>
@@ -170,9 +170,9 @@ SFR Info: 700 MW, 40 year lifespan
 				<out_commods>
 					<val>cool_spent_uox</val>
 				</out_commods>
-				<residence_time>36</residence_time>
-				<throughput>1E299</throughput>
-				<max_inv_size>1E299</max_inv_size>
+				<residence_time>2</residence_time>
+				<throughput>1E4</throughput>
+				<max_inv_size>1E4</max_inv_size>
 			</Storage>
 		</config>
 		<name>uox_cooling_pool</name>
@@ -187,9 +187,9 @@ SFR Info: 700 MW, 40 year lifespan
 				<out_commods>
 					<val>cool_spent_mox</val>
 				</out_commods>
-				<residence_time>36</residence_time>
-				<throughput>1E299</throughput>
-				<max_inv_size>1E299</max_inv_size>
+				<residence_time>2</residence_time>
+				<throughput>1E4</throughput>
+				<max_inv_size>1E4</max_inv_size>
 			</Storage>
 		</config>
 		<name>mox_cooling_pool</name>
@@ -205,14 +205,14 @@ SFR Info: 700 MW, 40 year lifespan
 					<val>1.0</val>
 				</feed_commod_prefs>
 				<feed_recipe>spent_uox_recipe</feed_recipe>
-				<feedbuf_size>1E100</feedbuf_size>
+				<feedbuf_size>1E5</feedbuf_size>
 				<leftover_commod>uox_reprocessing_waste</leftover_commod>
-				<leftoverbuf_size>1E100</leftoverbuf_size>
+				<leftoverbuf_size>1E5</leftoverbuf_size>
 				<streams>
 					<item>
 						<commod>uox_Pu</commod>
 						<info>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 							<efficiencies>
 								<item>
 									<comp>Pu239</comp>
@@ -224,7 +224,7 @@ SFR Info: 700 MW, 40 year lifespan
 					<item>
 						<commod>uox_U</commod>
 						<info>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 							<efficiencies>
 								<item>
 									<comp>U238</comp>
@@ -249,14 +249,14 @@ SFR Info: 700 MW, 40 year lifespan
 					<val>1.0</val>
 				</feed_commod_prefs>
 				<feed_recipe>spent_mox_recipe</feed_recipe>
-				<feedbuf_size>1E100</feedbuf_size>
+				<feedbuf_size>1E5</feedbuf_size>
 				<leftover_commod>mox_reprocessing_waste</leftover_commod>
-				<leftoverbuf_size>1E100</leftoverbuf_size>
+				<leftoverbuf_size>1E5</leftoverbuf_size>
 				<streams>
 					<item>
 						<commod>mox_Pu</commod>
 						<info>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 							<efficiencies>
 								<item>
 									<comp>Pu239</comp>
@@ -268,7 +268,7 @@ SFR Info: 700 MW, 40 year lifespan
 					<item>
 						<commod>mox_U</commod>
 						<info>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 							<efficiencies>
 								<item>
 									<comp>U238</comp>
@@ -290,7 +290,7 @@ SFR Info: 700 MW, 40 year lifespan
 					<stream>
 						<info>
 							<mixing_ratio>0.129</mixing_ratio>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 						</info>
 						<commodities>
 							<item>
@@ -306,7 +306,7 @@ SFR Info: 700 MW, 40 year lifespan
 					<stream>
 						<info>
 							<mixing_ratio>0.714</mixing_ratio>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 						</info>
 						<commodities>
 							<item>
@@ -322,7 +322,7 @@ SFR Info: 700 MW, 40 year lifespan
 					<stream>
 						<info>
 							<mixing_ratio>0.157</mixing_ratio>
-							<buf_size>1E100</buf_size>
+							<buf_size>1E5</buf_size>
 						</info>
 						<commodities>
 							<item>
@@ -336,8 +336,8 @@ SFR Info: 700 MW, 40 year lifespan
 						</commodities>
 					</stream>
 				</in_streams>
-				<out_commod>mox_fuel</out_commod>
-				<out_buf_size>1E100</out_buf_size>
+				<out_commod>mox</out_commod>
+				<out_buf_size>1E5</out_buf_size>
 			</Mixer>
 		</config>
 		<name>mox_mixer</name>
@@ -349,12 +349,23 @@ SFR Info: 700 MW, 40 year lifespan
 				<in_commods>
 					<val>uox_reprocessing_waste</val>
 					<val>mox_reprocessing_waste</val>
+				</in_commods>
+				<max_inv_size>1E5</max_inv_size>
+			</Sink>
+		</config>
+		<name>dgr</name>
+	</facility>
+
+	<facility>
+		<config>
+			<Sink>
+				<in_commods>
 					<val>tailings</val>
 				</in_commods>
 				<max_inv_size>1E10</max_inv_size>
 			</Sink>
 		</config>
-		<name>dgr</name>
+		<name>tailings_dump</name>
 	</facility>
 
 	<!-- Regions -->
@@ -367,27 +378,18 @@ SFR Info: 700 MW, 40 year lifespan
 			<config>
 				<NullInst/>
 			</config>
-
 			<initialfacilitylist>
-				<!--<entry>
+				<entry>
 					<prototype>mine</prototype>
-					<number>5</number>
+					<number>1</number>
 				</entry>
 				<entry>
 					<prototype>enrichment_plant</prototype>
-					<number>5</number>
-				</entry>-->
+					<number>1</number>
+				</entry>
 				<entry>
 					<prototype>lwr</prototype>
 					<number>60</number>
-				</entry>
-				<entry>
-					<prototype>uox_cooling_pool</prototype>
-					<number>1</number>
-				</entry>
-				<entry>
-					<prototype>mox_cooling_pool</prototype>
-					<number>1</number>
 				</entry>
 				<entry>
 					<prototype>uox_reprocessing_plant</prototype>
@@ -398,26 +400,21 @@ SFR Info: 700 MW, 40 year lifespan
 					<number>1</number>
 				</entry>
 				<entry>
-					<prototype>mox_mixer</prototype>
+					<prototype>dgr</prototype>
 					<number>1</number>
 				</entry>
 				<entry>
-					<prototype>dgr</prototype>
+					<prototype>tailings_dump</prototype>
 					<number>1</number>
 				</entry>
 			</initialfacilitylist>
 			<name>initial_institution</name>
 		</institution>
-
 		<institution>
 			<config>
 				<DemandDrivenDeploymentInst>
 					<calc_method>ma</calc_method>
 					<facility_commod>
-						<item>
-							<facility>lwr</facility>
-							<commod>POWER</commod>
-						</item>
 						<item>
 							<facility>sfr</facility>
 							<commod>POWER</commod>
@@ -433,10 +430,6 @@ SFR Info: 700 MW, 40 year lifespan
 					</facility_commod>
 					<facility_capacity>
 						<item>
-							<facility>lwr</facility>
-							<capacity>1000</capacity>
-						</item>
-						<item>
 							<facility>sfr</facility>
 							<capacity>700</capacity>
 						</item>
@@ -449,31 +442,72 @@ SFR Info: 700 MW, 40 year lifespan
 							<capacity>1E5</capacity>
 						</item>
 					</facility_capacity>
-					<facility_pref>
-						<item>
-							<facility>sfr</facility>
-							<pref>t-5</pref>
-						</item>
-					</facility_pref>
 					<demand_eq>60000</demand_eq>
 				</DemandDrivenDeploymentInst>
 			</config>
 			<name>nuclear_front_end</name>
 		</institution>
-
 		<institution>
 			<config>
 				<SupplyDrivenDeploymentInst>
 					<calc_method>ma</calc_method>
 					<facility_commod>
 						<item>
+							<facility>uox_cooling_pool</facility>
+							<commod>hot_spent_uox</commod>
+						</item>
+						<item>
+							<facility>mox_cooling_pool</facility>
+							<commod>hot_spent_mox</commod>
+						</item>
+						<item>
+							<facility>uox_reprocessing_plant</facility>
+							<commod>cool_spent_uox</commod>
+						</item>
+						<item>
+							<facility>mox_reprocessing_plant</facility>
+							<commod>cool_spent_mox</commod>
+						</item>
+						<item>
+							<facility>mox_mixer</facility>
+							<commod>uox_Pu</commod>
+						</item>
+						<item>
 							<facility>dgr</facility>
+							<commod>uox_reprocessing_waste</commod>
+						</item>
+						<item>
+							<facility>tailings_dump</facility>
 							<commod>tailings</commod>
 						</item>
 					</facility_commod>
 					<facility_capacity>
 						<item>
+							<facility>uox_cooling_pool</facility>
+							<capacity>1E4</capacity>
+						</item>
+						<item>
+							<facility>mox_cooling_pool</facility>
+							<capacity>1E4</capacity>
+						</item>
+						<item>
+							<facility>uox_reprocessing_plant</facility>
+							<capacity>1E5</capacity>
+						</item>
+						<item>
+							<facility>mox_reprocessing_plant</facility>
+							<capacity>1E5</capacity>
+						</item>
+						<item>
+							<facility>mox_mixer</facility>
+							<capacity>1E5</capacity>
+						</item>
+						<item>
 							<facility>dgr</facility>
+							<capacity>1E5</capacity>
+						</item>
+						<item>
+							<facility>tailings_dump</facility>
 							<capacity>1E10</capacity>
 						</item>
 					</facility_capacity>
@@ -481,7 +515,6 @@ SFR Info: 700 MW, 40 year lifespan
 			</config>
 			<name>nuclear_back_end</name>
 		</institution>
-		
 		<name>big_region</name>
 	</region>
 
@@ -495,41 +528,12 @@ SFR Info: 700 MW, 40 year lifespan
 	</recipe>
 
 	<recipe>
-    <name>depleted_u</name>
-    <basis>mass</basis>
-    <nuclide> <id>U235</id><comp>0.003</comp> </nuclide>
-    <nuclide> <id>U238</id><comp>0.997</comp> </nuclide>
-  </recipe>
-
-	<recipe>
 		<basis>mass</basis>
 		<name>uox_recipe</name>
 		<nuclide> <id>U234</id>  <comp>0.0002558883</comp> </nuclide> 
     <nuclide> <id>U235</id>  <comp>0.0319885317</comp> </nuclide> 
     <nuclide> <id>U238</id>  <comp>0.96775558</comp> </nuclide>
 	</recipe>
-
-	<recipe>
-    <name>mox_recipe</name>
-    <basis>mass</basis>
-    <nuclide> <id>U234</id>  <comp>9.7224110389438E-05</comp> </nuclide> 
-    <nuclide> <id>U235</id>  <comp>0.0039469814</comp> </nuclide> 
-    <nuclide> <id>U236</id>  <comp>0.0021573569</comp> </nuclide> 
-    <nuclide> <id>U238</id>  <comp>0.8665733427</comp> </nuclide> 
-    <nuclide> <id>Np237</id>  <comp>0.0060565044</comp> </nuclide> 
-    <nuclide> <id>Pu238</id>  <comp>0.0030040068</comp> </nuclide> 
-    <nuclide> <id>Pu239</id>  <comp>0.0606135352</comp> </nuclide> 
-    <nuclide> <id>Pu240</id>  <comp>0.0286774758</comp> </nuclide> 
-    <nuclide> <id>Pu241</id>  <comp>0.0134998465</comp> </nuclide> 
-    <nuclide> <id>Pu242</id>  <comp>0.0084034605</comp> </nuclide> 
-    <nuclide> <id>Am241</id>  <comp>0.0042991968</comp> </nuclide> 
-    <nuclide> <id>Am242m</id>  <comp>7.73428708584307E-06</comp> </nuclide> 
-    <nuclide> <id>Am243</id>  <comp>0.0019207217</comp> </nuclide> 
-    <nuclide> <id>Cm243</id>  <comp>6.47352555460846E-06</comp> </nuclide> 
-    <nuclide> <id>Cm244</id>  <comp>0.0006812961</comp> </nuclide> 
-    <nuclide> <id>Cm245</id>  <comp>5.48431266087054E-05</comp> </nuclide> 
-    <nuclide> <id>H1</id>  <comp>0</comp> </nuclide> 
-  </recipe>
 
 	<recipe>
 		<basis>mass</basis>
@@ -588,6 +592,28 @@ SFR Info: 700 MW, 40 year lifespan
     <nuclide> <id>Cs137</id>  <comp>0.0018169192</comp> </nuclide> 
     <nuclide> <id>H1</id>  <comp>0.0477938151</comp> </nuclide> 
 	</recipe>
+
+	<recipe>
+    <name>mox_recipe</name>
+    <basis>mass</basis>
+    <nuclide> <id>U234</id>  <comp>9.7224110389438E-05</comp> </nuclide> 
+    <nuclide> <id>U235</id>  <comp>0.0039469814</comp> </nuclide> 
+    <nuclide> <id>U236</id>  <comp>0.0021573569</comp> </nuclide> 
+    <nuclide> <id>U238</id>  <comp>0.8665733427</comp> </nuclide> 
+    <nuclide> <id>Np237</id>  <comp>0.0060565044</comp> </nuclide> 
+    <nuclide> <id>Pu238</id>  <comp>0.0030040068</comp> </nuclide> 
+    <nuclide> <id>Pu239</id>  <comp>0.0606135352</comp> </nuclide> 
+    <nuclide> <id>Pu240</id>  <comp>0.0286774758</comp> </nuclide> 
+    <nuclide> <id>Pu241</id>  <comp>0.0134998465</comp> </nuclide> 
+    <nuclide> <id>Pu242</id>  <comp>0.0084034605</comp> </nuclide> 
+    <nuclide> <id>Am241</id>  <comp>0.0042991968</comp> </nuclide> 
+    <nuclide> <id>Am242m</id>  <comp>7.73428708584307E-06</comp> </nuclide> 
+    <nuclide> <id>Am243</id>  <comp>0.0019207217</comp> </nuclide> 
+    <nuclide> <id>Cm243</id>  <comp>6.47352555460846E-06</comp> </nuclide> 
+    <nuclide> <id>Cm244</id>  <comp>0.0006812961</comp> </nuclide> 
+    <nuclide> <id>Cm245</id>  <comp>5.48431266087054E-05</comp> </nuclide> 
+    <nuclide> <id>H1</id>  <comp>0</comp> </nuclide> 
+  </recipe>
 
 	<recipe>
     <name>spent_mox_recipe</name>
