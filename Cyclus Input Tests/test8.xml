@@ -13,10 +13,10 @@ Thanks!
 TECH DETAILS:
 __________________________________________________________________________
 Start Date: Jan 2000
-Duration: 100 months (for the sake of runtime)
+Duration: 120 years
 Power Demand: 60 GW, 1 GW sinusoidal variation
-LWR Info: 1 GW, 15 month lifespan
-SFR Info: 700 MW, 15 month lifespan
+LWR Info: 1 GW, 40 year lifespan
+SFR Info: 700 MW, 40 year lifespan
 -->
 <simulation>
 	<archetypes>
@@ -69,7 +69,7 @@ SFR Info: 700 MW, 15 month lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>100</duration>
+		<duration>1000</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 		<decay>lazy</decay>
@@ -108,7 +108,7 @@ SFR Info: 700 MW, 15 month lifespan
 		<config>
 			<Reactor>
 				<assem_size>1000</assem_size>
-				<cycle_time>5</cycle_time>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>uox</val>
 				</fuel_incommods>
@@ -127,7 +127,7 @@ SFR Info: 700 MW, 15 month lifespan
 				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>30</lifetime>
+		<lifetime>480</lifetime>
 		<name>lwr</name>
 	</facility>
 
@@ -135,7 +135,7 @@ SFR Info: 700 MW, 15 month lifespan
 		<config>
 			<Reactor>
 				<assem_size>1000</assem_size>
-				<cycle_time>5</cycle_time>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>mox</val>
 				</fuel_incommods>
@@ -154,7 +154,7 @@ SFR Info: 700 MW, 15 month lifespan
 				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>30</lifetime>
+		<lifetime>480</lifetime>
 		<name>sfr</name>
 	</facility>
 
@@ -411,6 +411,7 @@ SFR Info: 700 MW, 15 month lifespan
 			<config>
 				<DemandDrivenDeploymentInst>
 					<calc_method>ma</calc_method>
+					<installed_cap>1</installed_cap>
 					<facility_commod>
 						<item>
 							<facility>sfr</facility>
