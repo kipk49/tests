@@ -73,7 +73,7 @@ SFR Info: 700 MW, 40 year lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>1000</duration>
+		<duration>960</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 	</control>
@@ -111,7 +111,7 @@ SFR Info: 700 MW, 40 year lifespan
 		<config>
 			<Reactor>
 				<assem_size>1000</assem_size>
-				<cycle_time>20</cycle_time>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>uox</val>
 				</fuel_incommods>
@@ -130,7 +130,7 @@ SFR Info: 700 MW, 40 year lifespan
 				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>100</lifetime>
+		<lifetime>480</lifetime>
 		<name>lwr</name>
 	</facility>
 
@@ -138,26 +138,30 @@ SFR Info: 700 MW, 40 year lifespan
 		<config>
 			<Reactor>
 				<assem_size>1000</assem_size>
-				<cycle_time>20</cycle_time>
+				<cycle_time>18</cycle_time>
 				<fuel_incommods>
 					<val>mox</val>
+					<val>uox</val>
 				</fuel_incommods>
 				<fuel_inrecipes>
 					<val>mox_recipe</val>
+					<val>uox_recipe</val>
 				</fuel_inrecipes>
 				<fuel_outcommods>
 					<val>hot_spent_mox</val>
+					<val>hot_spent_uox</val>
 				</fuel_outcommods>
 				<fuel_outrecipes>
 					<val>spent_mox_recipe</val>
+					<val>spent_uox_recipe</val>
 				</fuel_outrecipes>
 				<n_assem_batch>1</n_assem_batch>
 				<n_assem_core>3</n_assem_core>
 				<power_cap>700</power_cap>
-				<refuel_time>100</refuel_time>
+				<refuel_time>1</refuel_time>
 			</Reactor>
 		</config>
-		<lifetime>15</lifetime>
+		<lifetime>480</lifetime>
 		<name>sfr</name>
 	</facility>
 
@@ -170,9 +174,8 @@ SFR Info: 700 MW, 40 year lifespan
 				<out_commods>
 					<val>cool_spent_uox</val>
 				</out_commods>
-				<residence_time>2</residence_time>
-				<throughput>1E4</throughput>
-				<max_inv_size>1E4</max_inv_size>
+				<residence_time>36</residence_time>
+				<max_inv_size>1E5</max_inv_size>
 			</Storage>
 		</config>
 		<name>uox_cooling_pool</name>
@@ -187,9 +190,8 @@ SFR Info: 700 MW, 40 year lifespan
 				<out_commods>
 					<val>cool_spent_mox</val>
 				</out_commods>
-				<residence_time>2</residence_time>
-				<throughput>1E4</throughput>
-				<max_inv_size>1E4</max_inv_size>
+				<residence_time>36</residence_time>
+				<max_inv_size>1E5</max_inv_size>
 			</Storage>
 		</config>
 		<name>mox_cooling_pool</name>
@@ -414,11 +416,8 @@ SFR Info: 700 MW, 40 year lifespan
 			<config>
 				<DemandDrivenDeploymentInst>
 					<calc_method>ma</calc_method>
+					<installed_cap>1</installed_cap>
 					<facility_commod>
-						<item>
-							<facility>lwr</facility>
-							<commod>POWER</commod>
-						</item>
 						<item>
 							<facility>sfr</facility>
 							<commod>POWER</commod>
@@ -433,10 +432,6 @@ SFR Info: 700 MW, 40 year lifespan
 						</item>
 					</facility_commod>
 					<facility_capacity>
-						<item>
-							<facility>lwr</facility>
-							<capacity>1000</capacity>
-						</item>
 						<item>
 							<facility>sfr</facility>
 							<capacity>700</capacity>
@@ -492,11 +487,11 @@ SFR Info: 700 MW, 40 year lifespan
 					<facility_capacity>
 						<item>
 							<facility>uox_cooling_pool</facility>
-							<capacity>1E4</capacity>
+							<capacity>1E5</capacity>
 						</item>
 						<item>
 							<facility>mox_cooling_pool</facility>
-							<capacity>1E4</capacity>
+							<capacity>1E5</capacity>
 						</item>
 						<item>
 							<facility>uox_reprocessing_plant</facility>
