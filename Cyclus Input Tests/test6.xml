@@ -17,7 +17,7 @@ DGR deploy through the Supply Driven Deployment Institution.
 TECH DETAILS:
 __________________________________________________________________________
 Start Date: Jan 2000
-Duration: 50 months (for the sake of runtime)
+Duration: 120 years
 Power Demand: 60 GW, constant
 LWR Info: 1 GW, 40 year lifespan
 SFR Info: 700 MW, 40 year lifespan
@@ -73,7 +73,7 @@ SFR Info: 700 MW, 40 year lifespan
 	<!-- Controls -->
 
 	<control>
-		<duration>960</duration>
+		<duration>1440</duration>
 		<startmonth>1</startmonth>
 		<startyear>2000</startyear>
 	</control>
@@ -390,10 +390,6 @@ SFR Info: 700 MW, 40 year lifespan
 					<number>1</number>
 				</entry>
 				<entry>
-					<prototype>lwr</prototype>
-					<number>60</number>
-				</entry>
-				<entry>
 					<prototype>uox_reprocessing_plant</prototype>
 					<number>1</number>
 				</entry>
@@ -419,6 +415,10 @@ SFR Info: 700 MW, 40 year lifespan
 					<installed_cap>1</installed_cap>
 					<facility_commod>
 						<item>
+							<facility>lwr</facility>
+							<commod>POWER</commod>
+						</item>
+						<item>
 							<facility>sfr</facility>
 							<commod>POWER</commod>
 						</item>
@@ -433,6 +433,10 @@ SFR Info: 700 MW, 40 year lifespan
 					</facility_commod>
 					<facility_capacity>
 						<item>
+							<facility>lwr</facility>
+							<capacity>1000</capacity>
+						</item>
+						<item>
 							<facility>sfr</facility>
 							<capacity>700</capacity>
 						</item>
@@ -445,9 +449,33 @@ SFR Info: 700 MW, 40 year lifespan
 							<capacity>1E5</capacity>
 						</item>
 					</facility_capacity>
+					<facility_pref>
+						<item>
+							<facility>lwr</facility>
+							<pref>-1</pref>
+						</item>
+					</facility_pref>
+					<buffer_type>
+						<item>
+							<commod>POWER</commod>
+							<type>rel</type>
+						</item>
+					</buffer_type>
+					<supply_buffer>
+						<item>
+							<commod>POWER</commod>
+							<buffer>0.1</buffer>
+						</item>
+					</supply_buffer>
 					<demand_eq>60000</demand_eq>
 				</DemandDrivenDeploymentInst>
 			</config>
+				<initialfacilitylist>
+					<entry>
+						<number>60</number>
+						<prototype>lwr</prototype>
+					</entry>
+				</initialfacilitylist>
 			<name>nuclear_front_end</name>
 		</institution>
 		<institution>
